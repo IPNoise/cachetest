@@ -28,20 +28,20 @@ namespace cachetest.Pages
       
         public void OnGet()
         {
-            // CookieOptions cookieOptions = new CookieOptions();
+            CookieOptions cookieOptions = new CookieOptions();
 
-            // if(!HttpContext.Request.Cookies.ContainsKey("first_request"))
-            // {
+            if(!HttpContext.Request.Cookies.ContainsKey("first_request"))
+            {
 
-            //     cookieOptions.Expires = new DateTimeOffset(DateTime.Now.AddDays(7));
-            //     HttpContext.Response.Cookies.Append("first_request", DateTime.Now.ToString(),cookieOptions);
+                cookieOptions.Expires = new DateTimeOffset(DateTime.Now.AddDays(7));
+                HttpContext.Response.Cookies.Append("first_request", DateTime.Now.ToString(),cookieOptions);
                 
-            //     WelcomeMessage = "Welcome, new visitor!";
-            // } else {
-            //     DateTime firstRequest = DateTime.Parse(HttpContext.Request.Cookies["first_request"]);
-            //     WelcomeMessage = "Welcome back, user!" ;
-            //     FirstVisitDate = "your first visit was on:" + firstRequest.ToString();
-            // }
+                WelcomeMessage = "Welcome, new visitor!";
+            } else {
+                DateTime firstRequest = DateTime.Parse(HttpContext.Request.Cookies["first_request"]);
+                WelcomeMessage = "Welcome back, user!" ;
+                FirstVisitDate = "your first visit was on:" + firstRequest.ToString();
+            }
             
 
         }
