@@ -34,13 +34,13 @@ namespace cachetest.Pages
             {
 
                 cookieOptions.Expires = new DateTimeOffset(DateTime.Now.AddDays(7));
-                HttpContext.Response.Cookies.Append("first_request", DateTime.Now.ToString(),cookieOptions);
+                HttpContext.Response.Cookies.Append("first_request", "1010");
                 
                 WelcomeMessage = "Welcome, new visitor!";
             } else {
-                DateTime firstRequest = DateTime.Parse(HttpContext.Request.Cookies["first_request"]);
+                var firstRequest = HttpContext.Request.Cookies["first_request"];
                 WelcomeMessage = "Welcome back, user!" ;
-                FirstVisitDate = "your first visit was on:" + firstRequest.ToString();
+                FirstVisitDate = "your first visit was on:" + firstRequest;
             }
             
 
