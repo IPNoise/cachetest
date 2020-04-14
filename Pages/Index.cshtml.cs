@@ -24,6 +24,8 @@ namespace cachetest.Pages
             _logger = logger;
         }
 
+
+        [ResponseCache(VaryByHeader = "User-Agent", Duration = 30)]
         public void OnGet()
         {
             CookieOptions cookieOptions = new CookieOptions();
